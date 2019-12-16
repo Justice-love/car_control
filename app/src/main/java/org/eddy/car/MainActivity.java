@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         WebView webView = findViewById(R.id.webvies);
         webView.loadData(content, "text/html", "UTF-8");
-        Button front = findViewById(R.id.front);
-        front.setOnClickListener(new View.OnClickListener() {
+
+        findViewById(R.id.front).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "向前", Toast.LENGTH_LONG).show();
