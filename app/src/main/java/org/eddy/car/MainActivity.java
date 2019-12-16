@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         WebView webView = findViewById(R.id.webvies);
-        webView.loadUrl("https://justice-love.com/");
         webView.loadData(content, "text/html", "UTF-8");
         Button front = findViewById(R.id.front);
         front.setOnClickListener(new View.OnClickListener() {
