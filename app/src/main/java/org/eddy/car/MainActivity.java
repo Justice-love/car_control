@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "向前", Toast.LENGTH_LONG).show();
-                stub.commond(CarControlRequest.newBuilder().setDirection(Direction.FRONT).build());
+                stub.command(CarControlRequest.newBuilder().setDirection(Direction.FRONT).build());
             }
         });
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "向后", Toast.LENGTH_LONG).show();
-                stub.commond(CarControlRequest.newBuilder().setDirection(Direction.BACK).build());
+                stub.command(CarControlRequest.newBuilder().setDirection(Direction.BACK).build());
             }
         });
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "向右", Toast.LENGTH_LONG).show();
-                stub.commond(CarControlRequest.newBuilder().setDirection(Direction.RIGHT).build());
+                stub.command(CarControlRequest.newBuilder().setDirection(Direction.RIGHT).build());
             }
         });
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "向左", Toast.LENGTH_LONG).show();
-                stub.commond(CarControlRequest.newBuilder().setDirection(Direction.LEFT).build());
+                stub.command(CarControlRequest.newBuilder().setDirection(Direction.LEFT).build());
             }
         });
     }
