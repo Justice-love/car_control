@@ -28,17 +28,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String ip = getIntent().getStringExtra("ip");
-        ManagedChannel channel = ManagedChannelBuilder.forAddress(ip, 18901).usePlaintext().build();
-        stub = CarRpcGrpc.newBlockingStub(channel);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ManagedChannel managedChannel = (ManagedChannel) stub.getChannel();
+        managedChannel.shutdown();
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
         WebView webView = findViewById(R.id.webvies);
         webView.loadData(content, "text/html", "UTF-8");
+
+        String ip = getIntent().getStringExtra("ip");
+        ManagedChannel channel = ManagedChannelBuilder.forAddress(ip, 18901).usePlaintext().build();
+        stub = CarRpcGrpc.newBlockingStub(channel);
 
         findViewById(R.id.front).setOnClickListener(new View.OnClickListener() {
             @Override
