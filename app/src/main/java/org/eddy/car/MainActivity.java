@@ -14,13 +14,13 @@ import org.eddy.car.proto.Direction;
 public class MainActivity extends AppCompatActivity {
 
     private static final String content = "<html>\n" +
-            "<title></title>\n" +
-            "\n" +
-            "<body>\n" +
-            "    hello webview\n" +
-            "</body>\n" +
-            "\n" +
-            "</html>";
+        "<title></title>\n" +
+        "\n" +
+        "<body>\n" +
+        "    <img style=\"width: 380px;\" src=\"http://ip:8080/?action=stream\" />\n" +
+        "</body>\n" +
+        "\n" +
+        "</html>";
 
     private static CarRpcGrpc.CarRpcBlockingStub stub;
 
@@ -40,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        WebView webView = findViewById(R.id.webvies);
-        webView.loadData(content, "text/html", "UTF-8");
 
         String ip = getIntent().getStringExtra("ip");
         ManagedChannel channel = ManagedChannelBuilder.forAddress(ip, 18901).usePlaintext().build();
         stub = CarRpcGrpc.newBlockingStub(channel);
+
+        WebView webView = findViewById(R.id.webvies);
+        webView.loadData(content.replace("ip", ip), "text/html", "UTF-8");
 
         findViewById(R.id.front).setOnClickListener(new View.OnClickListener() {
             @Override
