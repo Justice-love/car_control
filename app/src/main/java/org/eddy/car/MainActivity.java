@@ -79,5 +79,13 @@ public class MainActivity extends AppCompatActivity {
                 stub.command(CarControlRequest.newBuilder().setDirection(Direction.LEFT).build());
             }
         });
+
+        findViewById(R.id.stop).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "停止", Toast.LENGTH_LONG).show();
+                stub.command(CarControlRequest.newBuilder().setDirection(Direction.STOP).build());
+            }
+        });
     }
 }
